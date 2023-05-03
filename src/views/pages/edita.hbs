@@ -1,0 +1,65 @@
+<!--Pagina para editar usuarios-->
+
+
+<br>
+<!--boton para regresar a la pagina anterior-->
+<center><ul class="dropdown-menu">
+<li><a class="rounded-md bg-blue-500 w-full text-lg text-white 
+font-semibold p-2 my-3 hover:bg-blue-600 focus:bg-blue-700" href="/pers">Regresar</a></ul></li></center>
+
+<div class="block mx-auto my-12 p-8 bg-white w-1/3 border border-gray-200 rounded-lg
+ shadow-lg text-gray-800">
+ 
+     <h1 class="text-center text-3xl font-bold">Editar personal</h1>
+   
+
+    <!--llamamos a la tabla users con sus datos-->
+    {{#each users}}
+    <!--definicion para emviar los datos por metodo POST-->
+    <form action="" method="POST" class="mt-4"> 
+
+        <!--Formulario con los datos del usuario que se pidio con la funcion edita en personal controller-->
+        <!--El value nos sive para poder tener el dato de nuestra base de datos-->
+        <p>Nombre</p>
+        <input type="text" name="nombre" placeholder="Nombre" value="{{nombre}}"
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <p>Apellido Paterno</p>
+        <input type="text" name="a_paterno" placeholder="Apellido Paterno" value="{{a_paterno}}"
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <p>Apellido Materno</p>
+        <input type="text" name="a_materno" placeholder="Apellido Materno" value="{{a_materno}}"
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <P>Correo Electronico</P>
+        <input type="email" name="email" placeholder="Correo Electronico" value="{{email}}"   
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <p>Contraseña</p>
+        <input type="password" name="password" placeholder="Contraseña" value="{{a_materno}}" 
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <p>Telefono</p>
+        <input type="tel" name="telefono" placeholder="Numero telefonico" value="{{telefono}}"
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+
+        <p>Rol</p>
+        <input type="text" name="rol" placeholder="Rol" value="{{rol}}"
+        class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+        bg-gray-300 focus:bg-white" required>
+        
+        <!--Boton para actualizar los datos-->
+        <button type="submit" class="rounded-md bg-blue-500 w-full text-lg text-white 
+        font-semibold p-2 my-3 hover:bg-blue-600 focus:bg-blue-700">Actualizar</button>
+
+    </form>
+    {{/each}}
+ 
+ </div>

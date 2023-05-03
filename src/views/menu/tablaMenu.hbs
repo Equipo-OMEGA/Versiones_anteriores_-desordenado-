@@ -1,0 +1,71 @@
+<!--Pagina de la tabla-->
+
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+    <br>
+
+    <!--Boton para dirigirnos a la funcion para dar de alta al producto-->
+    <center><ul class="dropdown-menu">
+    <li><a class="rounded-md bg-blue-500 w-full text-lg text-white 
+    font-semibold p-2 my-3 hover:bg-blue-600 focus:bg-blue-700" href="/alta">Alta de Productos</a></ul></li></center>
+
+    <br>
+     
+    <!--Boton para dirigirnos a la pagina anterior-->
+    <center><ul class="dropdown-menu">
+    <li><a class="rounded-md bg-blue-500 w-full text-lg text-white 
+    font-semibold p-2 my-3 hover:bg-blue-600 focus:bg-blue-700" href="/">Regresar</a></ul></li></center>
+
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    
+    <!--Creacion de la tabla que nos mostrara los datos-->
+    <table class="table-fixed w-full">
+      <!--Cabezera de la tabla-->
+      <thead>
+        <tr class="bg-blue-500 text-white">
+          <th class="w-1/4 py-4 ...">Cod_producto</th>
+          <th class="w-1/4 py-4 ...">Producto</th>
+          <th class="w-1/4 py-4 ...">Precio al cliente</th>
+          <th class="w-1/4 py-4 ...">Unidad</th>
+          <th class="w-1/4 py-4 ...">Existencia</th>
+          <th class="w-1/4 py-4 ...">Unidad de medida</th>
+          <th class="w-1/4 py-4 ...">Costo</th>
+          <th class="w-28 py-4 ...">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Hace mension a la tabla de nuestra base de datos que tiene los datos-->
+        {{#each productos}}
+        <tr>
+          <!--Inserta los datos de la tabla a la cual llamamos en la funcion anterior-->
+          <td class="py- px-6">{{id}}</td>
+          <td class="p-3 text-center">{{producto}}</td>
+          <td class="p-3 text-center">{{precio}}</td>
+          <td class="p-3 text-center">{{unidad}}</td>
+          <td class="p-3 text-center">{{existencia}}</td>
+          <td class="p-3 text-center">{{medida}}</td>
+          <td class="p-2 text-center">{{costo}}</td>
+
+          <td class="p-3 flex">
+            <!--Creacion de los botones de opciones-->
+            <!--Boton para eliminar productos este funciona con la funcion que definimos en menucontrollers-->
+            <form action="/menu/delete" method="POST" class="mx-2">
+            <!--Funcion que nos da el id de el producto que seleccionamos con el boton-->
+              <input type="hidden" value="{{id}}" name="id">
+              <!--Boton para editar productos este funciona con la funcion que definimos en menucontrollers-->
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+             <!--Funcion que nos da el id de el producto que seleccionamos con el boton y nos 
+             dirige a la pagina para editar-->
+            <a href="/menu/edit/{{id}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        <!--Se cierra la coneccion con la base de datos-->
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<!--Pagina para poder editar producto seleccionado-->
+
+<br>
+
+<!--boton para regresar a la pagina anterior-->
+<center><ul class="dropdown-menu">
+<li><a class="rounded-md bg-green-500 w-full text-lg text-white 
+font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700" href="/menu">Regresar</a></ul></li></center>
+
+<div class="block mx-auto my-12 p-8 bg-white w-1/3 border border-gray-200 rounded-lg shadow-lg text-gray-800">
+
+  <h1 class="text-center text-3xl font-bold">Editar Productos</h1>
+  
+  <!--llamamos a la tabla productos con sus datos-->
+  {{#each productos}}
+  <!--definicion para enviar los datos por metodo POST-->
+  <form action="" method="POST" class="mt-4">
+
+    <!--Formulario con los datos del produto que se pidio con la funcion edit en menu controller-->
+    <!--El value nos sirve para poder tener el dato de nuestra base de datos-->
+    <p>Producto</p>
+    <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white" placeholder="Producto" name="producto" value="{{producto}}" required>
+
+    <p>Precio al cliente</p>
+    <input class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white " placeholder="Precio al cliente" name="precio" value="{{precio}}"required></input>
+
+    <p>Unidad</p>
+    <input class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white " placeholder="Unidad" name="unidad" value="{{unidad}}"required></input>
+
+    <p>Existencia</p>
+    <input class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white " placeholder="Existencia" name="existencia" value="{{existencia}}"required></input>
+
+    <p>Unidad de medida</p>
+    <input class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white " placeholder="Unidaded de medida" name="medida" value="{{medida}}"required></input>
+
+    <p>Costo</p>
+    <input class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 
+      p-2 my-2 focus:bg-white " placeholder="Costo" name="Costo" value="{{costo}}"required></input>
+     
+    <!--Boton para Actualizar el producto--->
+    <button type="submit" class="rounded-md bg-blue-500 w-full text-lg text-white font-semibold p-2 my-3
+      hover:bg-blue-600 focus:bg-blue-700">Actualizar</button>
+
+  </form>
+  {{/each}}
+
+</div>
